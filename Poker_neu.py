@@ -65,6 +65,7 @@ class PokerTournamentManager(tk.Tk):
         self.num_tables = 1
         self.total_time_elapsed = 0  # Gesamtzeit
         self.one_minute_warning_played = False
+        self._timer_after_id = None  # initialize timer callback id
 
         self.create_widgets()
         self.update_level_display()
@@ -76,9 +77,9 @@ class PokerTournamentManager(tk.Tk):
         self.player_entry.place(x=20, y=20, width=200)
         tk.Button(self, text="Spieler hinzufügen", command=self.add_player).place(x=230, y=18)
 
-        # tk.Label(self, text="Tische (automatisch):").place(x=350, y=20)
-        # self.table_label = tk.Label(self, text="1")
-        # self.table_label.place(x=480, y=20, width=40)
+        tk.Label(self, text="Tische (automatisch):").place(x=350, y=20)
+        self.table_label = tk.Label(self, text="1")
+        self.table_label.place(x=480, y=20, width=40)
 
         tk.Button(self, text="Sitzplätze zuweisen", command=self.assign_seats).place(x=20, y=55)
         tk.Button(self, text="Level-Einstellungen", command=self.edit_levels).place(x=150, y=55)
